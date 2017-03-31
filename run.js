@@ -23,8 +23,8 @@ setInterval(() => {
 	date = new Date();
 	var currentTime = Math.floor((date.getTime() - startTime) / 1000);
 	console.log('Lights @ ' + currentTime + ' seconds');
-	console.log('North South = ' + northSouth.color);
-	console.log('East West = ' + eastWest.color);
+	console.log('North South = ' + northSouth.getColor());
+	console.log('East West = ' + eastWest.getColor());
 }, 1000);
 
 //tests:
