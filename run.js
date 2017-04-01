@@ -1,9 +1,9 @@
-var LightsController = require('./lib/lightscontroller');
-var Light = require('./lib/light');
+var LightsController = require('./lib/lightscontroller'),
+	Light = require('./lib/light');
 
 //Time intervals as set in the spec (seconds)
-const CHANGE_INTERVAL = 3;
-const YELLOW_LIGHT_INTERVAL = 1;
+const CHANGE_INTERVAL = 300;
+const YELLOW_LIGHT_INTERVAL = 30;
 
 //The actual lights and the light controller
 var northSouth = new Light('red');

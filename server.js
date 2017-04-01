@@ -1,11 +1,12 @@
-var Light = require('./lib/light');
-var LightsController = require('./lib/lightscontroller');
-var ns = new Light('red');
-var ew = new Light('green');
-var controller = new LightsController(ns, ew);
+var Light = require('./lib/light'),
+	LightsController = require('./lib/lightscontroller');
 
-var express = require('express');
-var app = express();
+var ns = new Light('red'),
+	ew = new Light('red'),
+	controller = new LightsController(ns, ew);
+
+var express = require('express'),
+	app = express();
 
 app.use('/public', express.static('public'));
 
@@ -17,9 +18,10 @@ app.get('/', function (req, res) {
 });
 
 app.get('/run', function (req, res) {
-	console.log(req.query);
-	controller.run(req.query.timechange, req.query.timeyellow)
-	res.send('Running with intervals: ' + req.query.timechange + ' ' + req.query.timeyellow)
+	ns.changeColor(req.query.ns);
+	ew.changeColor(req.query.ew);
+	controller.run(req.query.timechange, req.query.timeyellow);
+	res.send('Running with intervals: ' + req.query.timechange + ' ' + req.query.timeyellow);
 });
 
 app.get('/ns', function (req, res) {
@@ -31,16 +33,22 @@ app.get('/ew', function (req, res) {
 });
 
 app.get('/socket', function (req, res) {
-	req.socket.setTimeout(Infinity);
+	res.writeHead(200, {
+		'Content-Type': 'text/event-stream',
+		'Cache-Control': 'no-cache',
+		'Connection': 'keep-alive'
+	});
 
-	res.send('hello');
 	controller.getEmitter().on('initiateChange', function() {
-		res.send({ns: ns.getColor(), ew: ew.getColor()});
+		var lights = {ns: ns.getColor(), ew: ew.getColor(), type: 'initiateChange', status: 'ok'};
+		res.write('data: ' + JSON.stringify(lights) + '\n\n');
 	});
 
 	controller.getEmitter().on('changeDirection', function() {
-		res.send({ns: ns.getColor(), ew: ew.getColor()});
+		var lights = {ns: ns.getColor(), ew: ew.getColor(), type: 'changeDirection', status: 'ok'};
+		res.write('data: ' + JSON.stringify(lights) + '\n\n');
 	});
+
 });
 
 app.get('/stop', function (req, res) {
