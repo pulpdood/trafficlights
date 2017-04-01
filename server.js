@@ -17,8 +17,9 @@ app.get('/', function (req, res) {
 })
 
 app.get('/run', function (req, res) {
-	controller.run(3, 1);
-	res.send('Running')
+	console.log(req.query);
+	controller.run(req.query.timechange, req.query.timeyellow)
+	res.send('Running with intervals: ' + req.query.timechange + ' ' + req.query.timeyellow)
 })
 
 app.get('/ns', function (req, res) {
