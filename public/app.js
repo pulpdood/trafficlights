@@ -1,11 +1,11 @@
 //Note: Should use a framework for binding NS and EW to variables that the application
 //can then use to render the correct lights.
-var ns= 'red';
+var ns = 'red';
 var ew = 'green';
 
 $('#start').click(function() {
-	var timeChange = $('#timechange').val();
-	var timeYellow = $('#timeyellow').val();
+	var timeChange = parseInt($('#timechange').val());
+	var timeYellow = parseInt($('#timeyellow').val());
 	if(timeChange < timeYellow || timeYellow < 1) {
 		console.log('Invalid times entered');
 		return;

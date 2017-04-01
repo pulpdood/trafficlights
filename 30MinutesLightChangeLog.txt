@@ -61,4 +61,3 @@ Changing Directions
 Lights @ 30:00
 North South = red
 East West = green
-----------
