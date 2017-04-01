@@ -35,15 +35,15 @@ The crux of the application is in the ```LightsController``` type. It takes in t
 The main function is the ```run``` function which takes in X and Y as mentioned in this readme's introduction. The code of the function is below:
 
 ```
-	this.mainTimer = setInterval(() => {
-		this.secondsElapsed++;
-		if(this.secondsElapsed % timeToChangeDirection /*X*/ == timeToChangeDirection /*X*/ - timeToWaitOnYellow /*Y*/) {
-			this.changeToYellow();
-		}
-		if(this.secondsElapsed % timeToChangeDirection /*X*/ == 0) {
-			this.changeDirection();
-		}
-	}, 1000)
+this.mainTimer = setInterval(() => {
+	this.secondsElapsed++;
+	if(this.secondsElapsed % timeToChangeDirection /*X*/ == timeToChangeDirection /*X*/ - timeToWaitOnYellow /*Y/) {
+		this.changeToYellow();
+	}
+	if(this.secondsElapsed % timeToChangeDirection /*X*/ == 0) {
+		this.changeDirection();
+	}
+}, 1000)
 ```
 
 The function starts an interval which ticks every second. When the seconds counted reaches Y seconds before X seconds has passed, the lights change to yellow, then once the seconds counted reaches X (i.e. Y seconds have passed since he lights have changed to yellow), the lights switch directions. We mod the seconds elapsed with X simply to reset to 0 each time the seconds reach X for easier comparison.
