@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Traffic Lights</title>
+	    <link rel="stylesheet" href="/public/bootstrap.min.css" />
+	    <link rel="stylesheet" href="/public/app.css" />
+	    <script src="/public/bootstrap.min.js"></script>
+	    <script src="/public/jquery-3.2.0.min.js"></script>
+	</head>
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="navbar-brand" href="/">Traffic Lights</a>
+	        </div>
+	        <div class="collapse navbar-collapse">
+	          <ul class="nav navbar-nav">
+	          </ul>
+	        </div><!--/.nav-collapse -->
+	      </div>
+	    </div>
+	    <div class="container">
+		    <div class="dashboard">
+		    	<h3>Traffic Lights Application</h3>
+		    	<hr>
+		    	<p></p>
+		    	<div class="form-group col-md-6">
+		    		<label for="timechange">Change interval (seconds)</label>
+		    		<input type="number" id="timechange" class="form-control">
+	    		</div>
+		    	<div class="form-group col-md-6">
+		    		<label for="timeyellow">Time to wait on yellow (seconds)</label>
+		    		<input type="number" id="timeyellow" class="form-control">
+	    		</div>
+	    		<div class="text-center">
+		    		<button class="btn btn-default">Start</button>
+		    	</div>
+		    </div>
+	    </div>
+	    <script src="/public/app.js"></script>
+	</body>
+</html>
