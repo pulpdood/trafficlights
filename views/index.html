@@ -28,15 +28,16 @@
 	    <div class="container">
 		    <div class="dashboard">
 		    	<h3>Traffic Lights Application</h3>
+		    	<p>This is a simulation of a traffic light system using Node.js backend. To run, enter the interval of time for the traffic lights to automatically change directions, and the time for the yellow lights to be displayed before changing.</p>
+		    	<p>Note: The minimum time to wait on yellow is 1 second, and change interval has to be longer than the time to wait on yellow.</p>
 		    	<hr>
-		    	<p></p>
 		    	<div class="form-group col-md-6">
 		    		<label for="timechange">Change interval (seconds)</label>
-		    		<input type="number" id="timechange" class="form-control">
+		    		<input type="number" id="timechange" class="form-control" value=4>
 	    		</div>
 		    	<div class="form-group col-md-6">
 		    		<label for="timeyellow">Time to wait on yellow (seconds)</label>
-		    		<input type="number" id="timeyellow" class="form-control">
+		    		<input type="number" id="timeyellow" class="form-control" value=2>
 	    		</div>
 	    		<div class="text-center">
 		    		<button class="btn btn-default" id="start">Start</button>

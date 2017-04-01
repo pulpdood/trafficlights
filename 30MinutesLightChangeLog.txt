@@ -1,0 +1,64 @@
+Lights @ 0:00
+North South = red
+East West = green
+----------
+Changing to Yellow
+Lights @ 4:30
+North South = red
+East West = yellow
+----------
+Changing Directions
+Lights @ 5:00
+North South = green
+East West = red
+----------
+Changing to Yellow
+Lights @ 9:30
+North South = yellow
+East West = red
+----------
+Changing Directions
+Lights @ 10:00
+North South = red
+East West = green
+----------
+Changing to Yellow
+Lights @ 14:30
+North South = red
+East West = yellow
+----------
+Changing Directions
+Lights @ 15:00
+North South = green
+East West = red
+----------
+Changing to Yellow
+Lights @ 19:30
+North South = yellow
+East West = red
+----------
+Changing Directions
+Lights @ 20:00
+North South = red
+East West = green
+----------
+Changing to Yellow
+Lights @ 24:30
+North South = red
+East West = yellow
+----------
+Changing Directions
+Lights @ 25:00
+North South = green
+East West = red
+----------
+Changing to Yellow
+Lights @ 29:30
+North South = yellow
+East West = red
+----------
+Changing Directions
+Lights @ 30:00
+North South = red
+East West = green
+----------

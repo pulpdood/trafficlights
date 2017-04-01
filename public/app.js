@@ -27,7 +27,7 @@ function start(timeChange, timeYellow) {
 		update();
 		interval = setInterval(function() {
 			update();
-		}, 500);
+		}, 300);
 		console.log(resp);
 	}).fail(function(resp) {
 		console.log('Failed Response: ' + resp);

@@ -14,27 +14,40 @@ app.engine('html', require('ejs').renderFile);
 
 app.get('/', function (req, res) {
 	res.render('index.html');
-})
+});
 
 app.get('/run', function (req, res) {
 	console.log(req.query);
 	controller.run(req.query.timechange, req.query.timeyellow)
 	res.send('Running with intervals: ' + req.query.timechange + ' ' + req.query.timeyellow)
-})
+});
 
 app.get('/ns', function (req, res) {
 	res.send(ns.getColor());
-})
+});
 
 app.get('/ew', function (req, res) {
 	res.send(ew.getColor());
-})
+});
+
+app.get('/socket', function (req, res) {
+	req.socket.setTimeout(Infinity);
+
+	res.send('hello');
+	controller.getEmitter().on('initiateChange', function() {
+		res.send({ns: ns.getColor(), ew: ew.getColor()});
+	});
+
+	controller.getEmitter().on('changeDirection', function() {
+		res.send({ns: ns.getColor(), ew: ew.getColor()});
+	});
+});
 
 app.get('/stop', function (req, res) {
 	controller.stop();
 	res.send('Stopped');
-})
+});
 
 app.listen(3000, function () {
 	console.log('Traffic Lights application listening on port 3000')
-})
+});
