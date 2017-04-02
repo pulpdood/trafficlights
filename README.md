@@ -14,10 +14,10 @@ The application works as a standalone Node.js command line application run using
 Make sure you have node installed. Clone or download the package, then on the command line while in the directory run ```npm install```.
 
 ## Running the application
-To run the application bare bones just to see it working on the command line, simply run the command ```node run```. The application defaults to 5 minutes before changing directions, with a 30 second wait on yellow light before fully changing.
+To run the application bare bones just to see it working on the command line, simply run the command ```node run```.
 
-## Running the server
-To run the server, run ```node server``` on the command line. If all works well, you can access the application at ```http://localhost:3000``` and there are instructions on how to run the application on the page itself. Essentially, you can choose X and Y seconds and see a visualisation of what's going on in the backend.
+## Running the interactive web application
+To run the web app, run ```node server``` on the command line. If all works well, you can access the application at ```http://localhost:3000``` and there are instructions on how to run the application on the page itself.
 
 ## Testing
 
