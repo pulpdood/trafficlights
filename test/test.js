@@ -43,6 +43,25 @@ describe('Traffic Lights Controller', function() {
 			assert.equal(northSouth.getColor(), 'yellow');
 			assert.equal(eastWest.getColor(), 'red');
 		});
+		it('Changes only one of the green lights to yellow when they are both green', function() {
+			var northSouth = new Light('green');
+			var eastWest = new Light('green');
+			var controller = new LightsController(northSouth, eastWest);
+
+			controller.changeToYellow();
+
+			assert.ok((northSouth.getColor() == 'yellow' && eastWest.getColor() == 'green') || (northSouth.getColor() == 'green' && eastWest.getColor() == 'yellow'));
+		});
+		it("Doesn't do anything when there are no green lights", function() {
+			var northSouth = new Light('red');
+			var eastWest = new Light('yellow');
+			var controller = new LightsController(northSouth, eastWest);
+
+			controller.changeToYellow();
+
+			assert.equal(northSouth.getColor(), 'red');
+			assert.equal(eastWest.getColor(), 'yellow');
+		});
 	});
 	describe('#changeDirection()', function() {
 		it('Changes the current yellow lights to red (North South), and current red lights to green (East West)', function() {
@@ -64,6 +83,16 @@ describe('Traffic Lights Controller', function() {
 
 			assert.equal(northSouth.getColor(), 'green');
 			assert.equal(eastWest.getColor(), 'red');
+		});
+		it("Doesn't do anything when there are no yellow lights, since the yellow light has to be displayed before changing directions", function() {
+			var northSouth = new Light('red');
+			var eastWest = new Light('green');
+			var controller = new LightsController(northSouth, eastWest);
+
+			controller.changeDirection();
+
+			assert.equal(northSouth.getColor(), 'red');
+			assert.equal(eastWest.getColor(), 'green');
 		});
 	});
 	describe('#run()', function() {
