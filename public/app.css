@@ -1,10 +1,15 @@
 .dashboard {
-  padding: 80px 15px;
-  width:700px;
-  margin-left:auto;
-  margin-right:auto;
+	padding: 80px 15px;
+	width:700px;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 .light {
 	width:100px;
+}
+
+#info {
+	margin-top: 30px;
+	font-size: 20px;
 }

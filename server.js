@@ -40,12 +40,17 @@ app.get('/socket', function (req, res) {
 	});
 
 	controller.getEmitter().on('initiateChange', function() {
-		var lights = {ns: ns.getColor(), ew: ew.getColor(), type: 'initiateChange', timeElapsed: controller.getSecondsElapsed(), status: 'ok'};
+		var lights = {ns: ns.getColor(), ew: ew.getColor(), type: 'initiateChange', secondsElapsed: controller.getSecondsElapsed(), status: 'ok'};
 		res.write('data: ' + JSON.stringify(lights) + '\n\n');
 	});
 
 	controller.getEmitter().on('changeDirection', function() {
-		var lights = {ns: ns.getColor(), ew: ew.getColor(), type: 'changeDirection', timeElapsed: controller.getSecondsElapsed(), status: 'ok'};
+		var lights = {ns: ns.getColor(), ew: ew.getColor(), type: 'changeDirection', secondsElapsed: controller.getSecondsElapsed(), status: 'ok'};
+		res.write('data: ' + JSON.stringify(lights) + '\n\n');
+	});
+
+	controller.getEmitter().on('tick', function() {
+		var lights = {ns: ns.getColor(), ew: ew.getColor(), type: 'tick', secondsElapsed: controller.getSecondsElapsed(), status: 'ok'};
 		res.write('data: ' + JSON.stringify(lights) + '\n\n');
 	});
 

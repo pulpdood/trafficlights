@@ -29,6 +29,10 @@ controller.getEmitter().on('changeDirection', function() {
 	printLights(formatSeconds(controller.getSecondsElapsed()));
 })
 
+// controller.getEmitter().on('tick', function(seconds) {
+// 	console.log(formatSeconds(seconds));
+// });
+
 //Utility Functions
 function formatSeconds(seconds) {
 	var formatted = Math.floor(seconds / 60) + ':' ;
