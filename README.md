@@ -11,7 +11,7 @@ This application contains a number of things
 The application works as a standalone Node.js command line application run using: ```node run```, or as a whole Node.js web application using: ```node server``` which will be listening on port 3000.
 
 ## Installation
-Clone or download the package, then on the command line while in the directory run ```npm install```.
+Make sure you have node installed. Clone or download the package, then on the command line while in the directory run ```npm install```.
 
 ## Running the appliation
 To run the application bare bones just to see it working on the command line, simply run the command ```node run```. The application defaults to 5 minutes before changing directions, with a 30 second wait on yellow light before fully changing.
@@ -54,4 +54,4 @@ I am happy with the application, but there are some things that could be looked 
 * The timing component in ```lightscontroller.js``` may be better as a separate function on its own.
 * The Lights Controller should probably own the traffic lights it's been given and the lights themselves shouldn't be able to be accesseed by outside functions - this would take some refactoring
 * The front end application could be written in a better framework
-* The output format of the console application could be a bit better
+* The output of the console application could be formatted a bit more nicely
