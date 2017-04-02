@@ -1,7 +1,7 @@
 var assert = require('assert');
 
-var LightsController = require('../lib/lightscontroller');
-var Light = require('../lib/light');
+var LightsController = require('../lib/lightscontroller'),
+	Light = require('../lib/light');
 
 describe('Lights', function() {
 	describe('#changeColor()', function() {

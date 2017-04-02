@@ -49,8 +49,9 @@ this.mainTimer = setInterval(() => {
 The function starts an interval which ticks every second. When the seconds counted reaches Y seconds before X seconds has passed, the lights change to yellow, then once the seconds counted reaches X (i.e. Y seconds have passed since he lights have changed to yellow), the lights switch directions. We mod the seconds elapsed with X simply to reset to 0 each time the seconds reach X for easier comparison.
 
 ## Room for improvement
-There are some things in the application that could be looked at for improvement:
+I am happy with the application, but there are some things that could be looked at for improvement and refactoring:
 * In ```lightscontroller.js```, there is a second counter which counts all the seconds that have elapsed since running. If left running for a very long time, this counter may overflow which may cause some strange behaviour.
 * The timing component in ```lightscontroller.js``` may be better as a separate function on its own.
 * The Lights Controller should probably own the traffic lights it's been given and the lights themselves shouldn't be able to be accesseed by outside functions - this would take some refactoring
 * The front end application could be written in a better framework
+* The output format of the console application could be a bit better

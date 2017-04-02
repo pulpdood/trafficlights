@@ -5,8 +5,11 @@ var ew = 'green';
 var secondsElapsed = 0;
 
 $('#start').click(function() {
+	//Get values of times inputted
 	var timeChange = parseInt($('#timechange').val());
 	var timeYellow = parseInt($('#timeyellow').val());
+
+	//Make sure the inputted values are valid
 	if(timeChange < timeYellow || timeYellow < 1) {
 		console.log('Invalid durations entered');
 		$('#info').html('Invalid durations entered');
@@ -14,6 +17,8 @@ $('#start').click(function() {
 	}
 
 	stop();
+
+	//Call the server to start the traffic light system
 	start(timeChange, timeYellow);
 });
 
@@ -44,6 +49,7 @@ if (!!window.EventSource) {
 	}, false);
 }
 
+//Call the server to start the traffic light system
 function start(timeChange, timeYellow) {
 	$.ajax(
 		{
@@ -59,6 +65,8 @@ function start(timeChange, timeYellow) {
 	})
 }
 
+
+//Call the server to stop the traffic light system
 function stop() {
 	$.ajax(
 		{
@@ -73,6 +81,7 @@ function stop() {
 	})
 }
 
+//Update what's displayed (if we used a framework we wouldn't need this)
 function update(updateType) {
 	$('#north').attr('src', '/public/' + ns + '.png');
 	$('#south').attr('src', '/public/' + ns + '.png');

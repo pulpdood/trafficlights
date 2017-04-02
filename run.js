@@ -2,8 +2,8 @@ var LightsController = require('./lib/lightscontroller'),
 	Light = require('./lib/light');
 
 //Time intervals as set in the spec (seconds)
-const CHANGE_INTERVAL = 300;
-const YELLOW_LIGHT_INTERVAL = 30;
+var CHANGE_INTERVAL = 300,
+	YELLOW_LIGHT_INTERVAL = 30;
 
 //The actual lights and the light controller
 var northSouth = new Light('red');
@@ -13,9 +13,10 @@ var controller = new LightsController(northSouth, eastWest);
 
 var secondsElapsed = 0;
 
-//Start the traffic light controller box
+//Start the traffic light controller
 controller.run(CHANGE_INTERVAL, YELLOW_LIGHT_INTERVAL);
 
+//Print initial state
 printLights('0:00');
 
 //Print the status of the lights when they change
@@ -29,6 +30,7 @@ controller.getEmitter().on('changeDirection', function() {
 	printLights(formatSeconds(controller.getSecondsElapsed()));
 })
 
+//Print the current time
 controller.getEmitter().on('tick', function(seconds) {
 	console.log(formatSeconds(seconds));
 });

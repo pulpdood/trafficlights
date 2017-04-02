@@ -32,6 +32,7 @@ app.get('/ew', function (req, res) {
 	res.send(ew.getColor());
 });
 
+//Server Sent Events
 app.get('/socket', function (req, res) {
 	res.writeHead(200, {
 		'Content-Type': 'text/event-stream',
@@ -39,19 +40,20 @@ app.get('/socket', function (req, res) {
 		'Connection': 'keep-alive'
 	});
 
+	//When the traffic lights emitter emits events, we send those events to the socket as JSON packages representing the current state of the app
 	controller.getEmitter().on('initiateChange', function() {
-		var lights = {ns: ns.getColor(), ew: ew.getColor(), type: 'initiateChange', secondsElapsed: controller.getSecondsElapsed(), status: 'ok'};
-		res.write('data: ' + JSON.stringify(lights) + '\n\n');
+		var message = {ns: ns.getColor(), ew: ew.getColor(), type: 'initiateChange', secondsElapsed: controller.getSecondsElapsed(), status: 'ok'};
+		res.write('data: ' + JSON.stringify(message) + '\n\n');
 	});
 
 	controller.getEmitter().on('changeDirection', function() {
-		var lights = {ns: ns.getColor(), ew: ew.getColor(), type: 'changeDirection', secondsElapsed: controller.getSecondsElapsed(), status: 'ok'};
-		res.write('data: ' + JSON.stringify(lights) + '\n\n');
+		var message = {ns: ns.getColor(), ew: ew.getColor(), type: 'changeDirection', secondsElapsed: controller.getSecondsElapsed(), status: 'ok'};
+		res.write('data: ' + JSON.stringify(message) + '\n\n');
 	});
 
 	controller.getEmitter().on('tick', function() {
-		var lights = {ns: ns.getColor(), ew: ew.getColor(), type: 'tick', secondsElapsed: controller.getSecondsElapsed(), status: 'ok'};
-		res.write('data: ' + JSON.stringify(lights) + '\n\n');
+		var message = {ns: ns.getColor(), ew: ew.getColor(), type: 'tick', secondsElapsed: controller.getSecondsElapsed(), status: 'ok'};
+		res.write('data: ' + JSON.stringify(message) + '\n\n');
 	});
 
 });
