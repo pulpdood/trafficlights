@@ -13,7 +13,7 @@ The application works as a standalone Node.js command line application run using
 ## Installation
 Make sure you have node installed. Clone or download the package, then on the command line while in the directory run ```npm install```.
 
-## Running the appliation
+## Running the application
 To run the application bare bones just to see it working on the command line, simply run the command ```node run```. The application defaults to 5 minutes before changing directions, with a 30 second wait on yellow light before fully changing.
 
 ## Running the server
@@ -52,6 +52,6 @@ The function starts an interval which ticks every second. When the seconds count
 I am happy with the application, but there are some things that could be looked at for improvement and refactoring:
 * In ```lightscontroller.js```, there is a second counter which counts all the seconds that have elapsed since running. If left running for a very long time, this counter may overflow which may cause some strange behaviour.
 * The timing component in ```lightscontroller.js``` may be better as a separate function on its own.
-* The Lights Controller should probably own the traffic lights it's been given and the lights themselves shouldn't be able to be accesseed by outside functions - this would take some refactoring
+* The Lights Controller should probably own the traffic lights it's been given and the lights themselves shouldn't be able to be accessed by outside functions - this would take some refactoring
 * The front end application could be written in a better framework
 * The output of the console application could be formatted a bit more nicely
